@@ -11,13 +11,20 @@ const destroyBtn = document.querySelector('button[data-destroy]');
 
 const boxes = document.querySelector('#boxes');
 
+const fragment = document.createDocumentFragment();
+
 function createBoxes(amount) {
   let size = 30;
   for (let i = 0; i < amount; i++){
     let color = getRandomHexColor();
-    boxes.innerHTML += `<div style="width: ${size}px; height: ${size}px; background-color: ${color};"></div>`;
+    const box = document.createElement('div');
+    box.style.width = `${size}px`;
+    box.style.height = `${size}px`;
+    box.style.backgroundColor = color;
+    fragment.appendChild(box);
     size += 10;
   }
+    boxes.appendChild(fragment);
 }
 
 function destroyBoxes() {

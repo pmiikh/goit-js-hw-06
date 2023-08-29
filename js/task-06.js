@@ -7,7 +7,7 @@ function handler(event) {
         input.classList.remove('invalid');
         input.classList.add('valid');
    
-    } else if (event.currentTarget.value.length > length) {
+    } else if (event.currentTarget.value.length > length || event.currentTarget.value.length  < length) {
         input.classList.remove('valid');
         input.classList.add('invalid');
     }
